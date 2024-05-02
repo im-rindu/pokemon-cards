@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import usePokemonDetails from "../../hooks/usePokemonDetail";
+import { usePokemonDetails } from "hooks";
 import { useNavigate } from "react-router-dom";
 
 interface CardProps {
-  name: string
+  name: string;
 }
 
 const Card: React.FC<CardProps> = ({ name }) => {
@@ -14,12 +14,17 @@ const Card: React.FC<CardProps> = ({ name }) => {
     navigate(`/detail/${name}`);
   }, [name, navigate]);
 
-  if (loading || !pokemonDetails) return <div>Loading...</div>
-  if (error) return <div>Something is wrong</div>
+  if (loading || !pokemonDetails) return <div>Loading...</div>;
+  if (error) return <div>Something is wrong</div>;
   return (
-    <div onClick={handleClickCard} className="w-full pt-10 pb-2 px-5 bg-brilliant-white rounded-2xl">
+    <div
+      onClick={handleClickCard}
+      className="w-full pt-10 pb-2 px-5 bg-brilliant-white rounded-2xl"
+    >
       <img src={pokemonDetails.artworkFront} alt="pokemon" />
-      <div className="text-sm font-bold leading-[14px] mt-2 text-center capitalize">{pokemonDetails.name}</div>
+      <div className="text-sm font-bold leading-[14px] mt-2 text-center capitalize">
+        {pokemonDetails.name}
+      </div>
     </div>
   );
 };

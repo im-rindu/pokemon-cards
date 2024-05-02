@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import searchIcon from "../../assets/search.png";
+import searchIcon from "assets/search.png";
 import { useDebouncedCallback } from "use-debounce";
-import usePokemonList from "../../hooks/usePokemonList";
+import { usePokemonList } from "hooks";
 
 const SearchField: React.FC = () => {
   const [editing, setEditing] = useState(false);

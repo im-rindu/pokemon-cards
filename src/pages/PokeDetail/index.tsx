@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
-import MobileWrapper from "../../components/MobileWrapper";
-import usePokemonDetails from "../../hooks/usePokemonDetail";
+import { MobileWrapper, Header } from "components";
+import { usePokemonDetails } from "hooks";
 import classNames from "classnames";
-import Header from "../../components/Header";
 
 const PokeDetail: React.FC = () => {
   const { name = "" } = useParams();
@@ -31,9 +30,7 @@ const PokeDetail: React.FC = () => {
           />
         </div>
         <div className="rounded-2xl bg-dark-rift p-4 flex flex-col gap-2">
-          <div className=" text-velvet-robe leading-[14px]">
-            Health
-          </div>
+          <div className=" text-velvet-robe leading-[14px]">Health</div>
           <div className="w-full rounded-full bg-chronicle h-[6px]">
             <div
               style={{
@@ -49,11 +46,15 @@ const PokeDetail: React.FC = () => {
           <div className="flex">
             <div className="flex flex-col gap-1 basis-1/2">
               <span className="leading-[14px] text-velvet-robe">Attack</span>
-              <span className="text-white text-2xl font-bold">{pokemonDetails.attack}</span>
+              <span className="text-white text-2xl font-bold">
+                {pokemonDetails.attack}
+              </span>
             </div>
             <div className="flex flex-col gap-1 basis-1/2">
               <span className="leading-[14px] text-velvet-robe">Defense</span>
-              <span className="text-white text-2xl font-bold">{pokemonDetails.defense}</span>
+              <span className="text-white text-2xl font-bold">
+                {pokemonDetails.defense}
+              </span>
             </div>
           </div>
         </div>
