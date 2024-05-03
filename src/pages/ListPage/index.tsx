@@ -1,9 +1,15 @@
-import React from "react";
-import { Card, Header, MobileWrapper, FilterField } from "components";
+import { useState } from "react";
+import {
+  Card,
+  Header,
+  MobileWrapper,
+  FilterField,
+  Pagination,
+} from "components";
 import { usePokemonList } from "hooks";
 
 const ListPage: React.FC = () => {
-  const [numGrid, setGridView] = React.useState<boolean>(false);
+  const [numGrid, setGridView] = useState<boolean>(false);
   const { pokemonList, loading, error, searchQuery } = usePokemonList();
   console.log(searchQuery);
   if (error) return <div>Something is wrong :(</div>;
@@ -24,6 +30,7 @@ const ListPage: React.FC = () => {
           ))}
         </div>
       )}
+      <Pagination />
     </MobileWrapper>
   );
 };
